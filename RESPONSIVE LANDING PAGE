@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Delivery</title>
+    <style>
+        /* CSS Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            padding: 8px 12px;
+        }
+        .navbar a:hover { background: red; border-radius: 5px; }
+        .navbar.scrolled { background: #555; }
+
+        /* Sections */
+        section { padding: 80px 20px; text-align: center; min-height: 100vh; }
+        #home { background: url('https://media.geeksforgeeks.org/wp-content/uploads/20240711124309/8513909_3941598-(2).jpg') no-repeat center/cover; color: white; }
+        #about { background: lightgray; }
+        #menu { background: white; }
+        #contact { background: gray; }
+
+        /* Menu Items */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .menu-item {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            background: white;
+        }
+        .menu-item:hover { transform: scale(1.05); }
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .menu-item h3 { margin: 10px 0; }
+        .menu-item p { padding: 0 10px; }
+        .menu-item .price { font-size: 18px; font-weight: bold; color: red; margin: 10px 0; }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            background: yellow;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 15px;
+            border-radius: 5px;
+        }
+        .btn:hover { background: red; color: white; }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; font-weight: bold; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea { resize: none; }
+
+        /* Footer */
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { text-align: left; padding: 10px; }
+            .navbar a { display: block; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Welcome to Online Food Delivery</h1>
+        <p>Delicious meals delivered to your doorstep!</p>
+        <button class="btn">Order Now</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h1>About Us</h1>
+        <p>We are passionate about delivering the best food experience right to your home.</p>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h1>Our Menu</h1>
+        <div class="menu-container">
+            <!-- Food Item 1 -->
+            <div class="menu-item">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240711123258/jpeg-optimizer_various-meals-western-food-platter-dark-background.jpg" alt="Burger">
+                <h3>Cheese Burger</h3>
+                <p>A juicy beef patty topped with melted cheese, fresh lettuce, and tangy sauce.</p>
+                <p class="price">$5.99</p>
+            </div>
+            <!-- Food Item 2 -->
+            <div class="menu-item">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240711123257/jpeg-optimizer_2151182491.jpg" alt="Pizza">
+                <h3>Pepperoni Pizza</h3>
+                <p>Thin crust pizza loaded with spicy pepperoni and melted mozzarella.</p>
+                <p class="price">$9.99</p>
+            </div>
+            <!-- Food Item 3 -->
+            <div class="menu-item">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240711123255/jpeg-optimizer_4744.jpg" alt="Pasta">
+                <h3>Chicken Alfredo Pasta</h3>
+                <p>Creamy Alfredo sauce mixed with grilled chicken and fettuccine pasta.</p>
+                <p class="price">$7.99</p>
+            </div>
+        </div>
+        <button class="btn">View Full Menu</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h1>Contact Us</h1>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <label for="query">Type of Query</label>
+                    <select id="query" name="query">
+                        <option value="order">Order Issue</option>
+                        <option value="site">Site Issue</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>Copyright © 2024 OnlineFoodShop. All Rights Reserved.</footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            let navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Smooth Scroll Effect
+        document.querySelectorAll('.navbar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
